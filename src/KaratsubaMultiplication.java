@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Abhishek Velayudham
+ *
+ */
 public class KaratsubaMultiplication {
 
 	public static void main(String[] args) {
@@ -10,7 +15,7 @@ public class KaratsubaMultiplication {
 		System.out.println(karatsubaMultiplication(55, 55));
 	}
 	
-	private static int karatsubaMultiplication(Integer num1, Integer num2) { // not working for digits with odd number of digits
+	public static int karatsubaMultiplication(Integer num1, Integer num2) { // not working for digits with odd number of digits
 		if (num1 < 10 || num2 < 10) return num1*num2;
 		
 		String num1Str = String.valueOf(num1);

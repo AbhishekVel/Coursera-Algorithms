@@ -1,29 +1,37 @@
 
+/**
+ * 
+ * @author Abhishek Velayudham
+ *
+ */
 public class MergeSort {
 
 	public static void main(String[] args) {
-		int[] unsorted = {5, 2, 1, 6, 7, 2, 3, 1, 4, 7};
+		int[] unsorted = {5, 2, 1, 6, 7, 2, 3, 1, 4, 7}; // one test case
 		int[] sorted = mergeSort(unsorted);
 		for (int num: sorted)
-			System.out.println(num);
+			System.out.print(num + " ");
+		
+		System.out.println();
+		
+		int[] unsorted2 = {5, 2, 1, 6, 7, 2, 3, 1, 4, 7, 3}; // one test case
+		int[] sorted2 = mergeSort(unsorted2);
+		for (int num: sorted2)
+			System.out.print(num + " ");
 	}
 	
-	private static int[] mergeSort(int[] unsorted) {
-		if (unsorted.length <= 1)
+	public static int[] mergeSort(int[] unsorted) {
+		if (unsorted == null || unsorted.length <= 1)
 			return unsorted;
 		
 		int[] firstHalf = new int[unsorted.length/2];
-		for (int i = 0; i < firstHalf.length;i++) {
+		for (int i = 0; i < firstHalf.length;i++)
 			firstHalf[i] = unsorted[i];
-		}
-		
-		
 		
 		int[] secondHalf = new int[unsorted.length - (unsorted.length/2)];
 		int k = unsorted.length/2;
-		for (int i = 0; i < secondHalf.length;i++) {
+		for (int i = 0; i < secondHalf.length;i++)
 			secondHalf[i] = unsorted[k++];
-		}
 		
 		firstHalf = mergeSort(firstHalf);
 		secondHalf = mergeSort(secondHalf);
