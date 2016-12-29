@@ -10,11 +10,10 @@ import java.util.Scanner;
 
 public class CountingInversions {
 
-	// algorithm uses merge sort algorithm 
 	public static void main(String[] args) {
 		//int[] array = {3, 1, 4, 5, 2, 6, 3};// test case
 		//System.out.println(countInversions(array));
-		int[] array = loadArrayFromFile("data/IntegerArray");
+		int[] array = Utilities.loadArrayFromFile("data/IntegerArray", 100_000);
 		System.out.println(countInversions(array));
 		//System.out.println(getInvCount(array, array.length));
 	}
@@ -44,6 +43,7 @@ public class CountingInversions {
 		long x = countInversions(firstHalf);
 		long y = countInversions(secondHalf);
 		
+		// algorithm uses merge sort algorithm 
 		long z = countSplitInversions(MergeSort.mergeSort(firstHalf), MergeSort.mergeSort(secondHalf));
 		
 		return x+y+z;
@@ -69,13 +69,12 @@ public class CountingInversions {
 				}
 			}
 		}
-		//System.out.println(inversions);
 		return inversions;
 	}
 	
 	
 	/**
-	 * Inefficient way of getting the number of inversions
+	 * Inefficient way of getting the number of inversions (Time complexity is n^2)
 	 * @param array
 	 * @param array's length
 	 * @return inversions count
@@ -90,24 +89,6 @@ public class CountingInversions {
 	}
 	
 	
-	/**
-	 * 
-	 * @param location
-	 * @return array of all the integers in the file
-	 */
-	private static int[] loadArrayFromFile(String location) {
-		int[] arr = new int[100_000]; // expected input size is 100,000
-		try {
-			Scanner sc = new Scanner(new File(location));
-			int i = 0;
-			while (sc.hasNextLine()) {
-				arr[i++] = sc.nextInt();
-			}
-		} catch (FileNotFoundException io) {
-			System.err.println("Error occured while loading data file.");
-			System.exit(1);
-		}
-		return arr;
-	}
+	
 	
 }
