@@ -1,4 +1,4 @@
-# CourseraAlgorithms
+# Coursera Algorithms
 
 This is a documentation of all the algorithms I coded as a part of taking the Coursera Specizilation on Algorithms.
 
